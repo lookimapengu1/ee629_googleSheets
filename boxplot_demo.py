@@ -51,5 +51,5 @@ data = [data, d2, d2[::2, 0]]
 # multiple box plots on one figure
 plt.figure()
 plt.boxplot(data)
-plt.imsave('boxplot.png')
+plt.savefig('boxplot.png')
 #plt.show()

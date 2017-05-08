@@ -1,13 +1,11 @@
 import pandas as p
 import numpy as np
-import datetime
+from scipy import stats
 import matplotlib
 matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 
-#with open('rpidata.csv') as f:
-#    data = f.readlines()
 data = p.read_csv('rpidata.csv')
 
 t = data['Date/Time']
@@ -18,11 +16,15 @@ t0 = np.array(t)
 x0 = np.array(x)
 y0 = np.array(y)
 
+
+#Create the scatter plot:
 scatter = plt
-scatter.ylabel('Temp (C)')
-scatter.xlabel('CPU Usage %')
+slope, intercept, r_value, p_value, std_err = stats.linregress(y0,x0)
+scatter.ylabel('CPU Usage (%)')
+scatter.xlabel('Temperature (C)')
 scatter.title('Scatter Plot')
 scatter.plot(y0,x0, linestyle='None', marker='o', color='b')
+scatter.plot([intercept, intercept+slope])
 scatter.savefig('scatter.jpg')
 
 print t[0]

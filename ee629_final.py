@@ -6,11 +6,9 @@ matplotlib.use('Agg')
 
 import matplotlib.pyplot as plt
 import matplotlib.mlab as mlab
+import matplotlib.dates as mdates
 
 data = p.read_csv('rpidata.csv')
-
-for line in data:
-    if data['Date/Time'].empty: print "uh oh"
 
 t = data['Date/Time']
 x = data['CPU Usage %']
@@ -18,7 +16,24 @@ y = data['Temperature C']
 
 t0 = np.array(t)
 x0 = np.array(x)
+x1 = range(len(x0))
 y0 = np.array(y)
+y1 = range(len(y0))
+
+#Time Chart:
+plt.subplot(2,1,1)
+plt.plot(x1,x0,'b-')
+plt.xlabel('Time (s)')
+plt.ylabel('CPU Usage (%)')
+plt.title('CPU Usage over Time')
+plt.subplot(2,1,2)
+plt.plot(y1,y0)
+plt.xlabel('Time (s)')
+plt.ylabel('CPU Temp (C)')
+plt.title('CPU Temp over Time')
+plt.savefig('timeseries.jpg')
+plt.clf()
+
 
 #histogram settings
 num_bins = 50

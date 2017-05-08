@@ -18,6 +18,7 @@ y0 = np.array(y)
 
 
 #Create the scatter plot:
+print 'generating scatter plot...'
 scatter = plt
 slope, intercept, r_value, p_value, std_err = stats.linregress(x0,y0)
 l = [slope*i + intercept for i in y]
@@ -27,3 +28,4 @@ scatter.title('Scatter Plot')
 scatter.plot(x0,y0, linestyle='None', marker='o', color='b')
 scatter.plot(x0, l, 'ro')
 scatter.savefig('scatter.jpg')
+print 'done with scatter plot!'

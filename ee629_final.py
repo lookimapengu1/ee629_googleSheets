@@ -21,7 +21,7 @@ y0 = np.array(y)
 print 'generating scatter plot...'
 scatter = plt
 slope, intercept, r_value, p_value, std_err = stats.linregress(x0,y0)
-l = [slope*i + intercept for i in y]
+l = [slope*i + intercept for i in x0]
 scatter.xlabel('CPU Usage (%)')
 scatter.ylabel('Temperature (C)')
 scatter.title('Scatter Plot')

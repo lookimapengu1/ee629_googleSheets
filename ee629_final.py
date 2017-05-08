@@ -18,8 +18,12 @@ t0 = np.array(t)
 x0 = np.array(x)
 y0 = np.array(y)
 
-plt.plot(x0,y0)
-plt.savefig('scatter.jpg')
+scatter = plt
+scatter.ylabel('Temp (C)')
+scatter.xlabel('CPU Usage %')
+scatter.title('Scatter Plot')
+scatter.plot(y0,x0, linestyle='None', marker='o', color='b')
+scatter.savefig('scatter.jpg')
 
 print t[0]
 print x[0]

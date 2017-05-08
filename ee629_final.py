@@ -19,11 +19,11 @@ y0 = np.array(y)
 
 #Create the scatter plot:
 scatter = plt
-slope, intercept, r_value, p_value, std_err = stats.linregress(y0,x0)
+slope, intercept, r_value, p_value, std_err = stats.linregress(x0,y0)
 l = [slope*i + intercept for i in y]
 scatter.ylabel('CPU Usage (%)')
 scatter.xlabel('Temperature (C)')
 scatter.title('Scatter Plot')
-scatter.plot(y0,x0, linestyle='None', marker='o', color='b')
-scatter.plot(y0, l, 'ro')
+scatter.plot(x0,y0, linestyle='None', marker='o', color='b')
+scatter.plot(x0, l, 'ro')
 scatter.savefig('scatter.jpg')

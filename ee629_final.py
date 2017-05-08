@@ -26,6 +26,6 @@ scatter.xlabel('CPU Usage (%)')
 scatter.ylabel('Temperature (C)')
 scatter.title('Scatter Plot')
 scatter.plot(x0,y0, linestyle='None', marker='o', color='b')
-scatter.plot(x0, l, 'ro')
+scatter.plot(x0, l, 'r-')
 scatter.savefig('scatter.jpg')
 print 'done with scatter plot!'
